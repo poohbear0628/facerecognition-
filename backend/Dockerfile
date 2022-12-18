@@ -8,4 +8,4 @@ WORKDIR /app
 COPY --from=builder /usr/src/app/target/demo-0.0.1-SNAPSHOT.jar /app/demo-0.0.1-SNAPSHOT.jar
 ENV SERVER_PORT 80
 EXPOSE 80
-CMD ["java", "-jar", "/demo-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "/app/demo-0.0.1-SNAPSHOT.jar"]
