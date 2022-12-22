@@ -120,7 +120,7 @@
     var data = canvas.toDataURL('image/png');
     photo.setAttribute('src', data);
 
-    let backend_host = "http://localhost:8080";
+    let backend_host = "https://facerecognitionprojectbackend.azurewebsites.net";
     fetch(backend_host + '/validate', {
       method: 'POST',
       body: data
