@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://serenaliu.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_71e323e10eeb4b89a7ed1d5cb8e6b3f5 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_c9e155bb4f08484a8ec2ea5b0d6ab71a }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_303c3c9459c3456896b10c89dcbccfff }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_97018a37906e4b93a8fab7e8f95e853f }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: serenaliu.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_71e323e10eeb4b89a7ed1d5cb8e6b3f5 }}/frontend:${{ github.sha }}
+        tags: serenaliu.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_303c3c9459c3456896b10c89dcbccfff }}/frontend:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'FaceRecognitionProjectFrontend'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6a047feec1bf4e83a8993f474482b92b }}
-        images: 'serenaliu.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_71e323e10eeb4b89a7ed1d5cb8e6b3f5 }}/frontend:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2645c87988fd4915b9275a3ba149588e }}
+        images: 'serenaliu.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_303c3c9459c3456896b10c89dcbccfff }}/frontend:${{ github.sha }}'
