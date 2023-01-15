@@ -101,7 +101,7 @@
   }
 
   function postImage(data) {
-    fetch('http://localhost:8080/images', {
+    fetch('/images', {
       method: "POST",
       body: data
     }).then(result => {
@@ -120,8 +120,7 @@
     var data = canvas.toDataURL('image/png');
     photo.setAttribute('src', data);
 
-    let backend_host = "https://facerecognitionprojectbackend.azurewebsites.net";
-    fetch(backend_host + '/validate', {
+    fetch('/validate', {
       method: 'POST',
       body: data
     })
